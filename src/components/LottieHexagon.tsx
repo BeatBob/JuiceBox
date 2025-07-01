@@ -45,7 +45,7 @@ const LottieHexagon = ({ step }: Props) => {
         <div
           className={`absolute inset-0 mask-hex overflow-hidden transition-opacity duration-500 ease-in-out z-20 ${overlayOpacityClass}`}
         >
-          <Image src="/animation/hexagon.png" alt="texture overlay" fill className="object-contain" />
+          <Image src="/animation/hexagon.png" alt="texture overlay" fill priority className="object-contain" />
         </div>
       </div>
 
