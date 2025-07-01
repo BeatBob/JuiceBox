@@ -1,5 +1,5 @@
 import PageContainer from "@/components/container/PageContainer";
-import Home from "@/components/Home";
+import HomeLayout from "@/components/HomeLayout";
 
 export const metadata = {
   title: "JuiceBox",
@@ -9,7 +9,7 @@ export const metadata = {
 export default function Page() {
   return (
     <PageContainer>
-      <Home />
+      <HomeLayout />
     </PageContainer>
   );
 }

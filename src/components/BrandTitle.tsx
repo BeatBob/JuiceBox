@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const JuiceboxTitle = () => {
+const BrandTitle = () => {
   const [hoveredTitle, setHoveredTitle] = useState(false);
 
   return (
@@ -35,4 +35,4 @@ const JuiceboxTitle = () => {
   );
 };
 
-export default JuiceboxTitle;
+export default BrandTitle;

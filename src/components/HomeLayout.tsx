@@ -1,13 +1,13 @@
 "use client";
 
 import { ReactNode, useRef, useState } from "react";
-import Carousel from "./Carousel";
-import LottieAnimation from "./LottieAnimation";
-import AnimatedBackButton from "./AnimatedBackButton";
 import Button from "./ui/Button";
-import JuiceboxTitle from "./JuiceboxTitle";
 import type { Swiper as SwiperInstance } from "swiper";
 import Input from "./ui/Input";
+import LottieHexagon from "./LottieHexagon";
+import BrandTitle from "./BrandTitle";
+import StepCarousel from "./StepCarousel";
+import BackButton from "./ui/BackButton";
 
 export type StepData = {
   title?: ReactNode;
@@ -40,7 +40,7 @@ const getStartedSteps: StepData[] = [
   },
 ];
 
-export default function Home() {
+export default function HomeLayout() {
   const swiperRef = useRef<SwiperInstance | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [step, setStep] = useState<"landing" | "started" | "form" | "thanks">("landing");
@@ -173,18 +173,18 @@ export default function Home() {
                 onClick={handleBackClick}
                 className="absolute md:hidden top-2 left-0 cursor-pointer w-fit bg-white/20 rounded-full z-50"
               >
-                <AnimatedBackButton />
+                <BackButton />
               </div>
             )}
 
             {/* title with hover animation  */}
-            <JuiceboxTitle />
+            <BrandTitle />
           </div>
 
           {/* hexagon lottie  */}
-          <LottieAnimation step={step} />
+          <LottieHexagon step={step} />
 
-          <Carousel
+          <StepCarousel
             getStartedSteps={getStartedSteps}
             step={step}
             swiperRef={swiperRef}

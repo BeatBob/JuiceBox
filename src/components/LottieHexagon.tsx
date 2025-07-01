@@ -8,7 +8,7 @@ type Props = {
   step: "landing" | "started" | "form" | "thanks";
 };
 
-const LottieAnimation = ({ step }: Props) => {
+const LottieHexagon = ({ step }: Props) => {
   const playerRef = useRef<Player | null>(null);
   const lottieWrapperClass =
     step === "started" ? `w-48 lg:w-64` : step === "form" || step === "thanks" ? "w-16 lg:w-24" : "w-11/12";
@@ -65,4 +65,4 @@ const LottieAnimation = ({ step }: Props) => {
   );
 };
 
-export default LottieAnimation;
+export default LottieHexagon;

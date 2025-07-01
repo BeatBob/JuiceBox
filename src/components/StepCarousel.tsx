@@ -7,7 +7,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import type { StepData } from "./Home";
+import type { StepData } from "./HomeLayout";
 
 type Props = {
   getStartedSteps: StepData[];
@@ -18,7 +18,7 @@ type Props = {
   formData: { name: string; email: string };
 };
 
-const Carousel = ({ getStartedSteps, swiperRef, setActiveIndex, step, formStep, formData }: Props) => {
+const StepCarousel = ({ getStartedSteps, swiperRef, setActiveIndex, step, formStep, formData }: Props) => {
   return (
     <Swiper
       onSwiper={(swiper) => (swiperRef.current = swiper)}
@@ -105,4 +105,4 @@ const Carousel = ({ getStartedSteps, swiperRef, setActiveIndex, step, formStep, 
   );
 };
 
-export default Carousel;
+export default StepCarousel;
