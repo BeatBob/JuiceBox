@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Bagoss";
+  src: url("../fonts/Bagoss/BagossTRIALVF.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bagoss {
+  font-family: "Bagoss";
+}
+
+@font-face {
+  font-family: "Sohne";
+  src: url("../fonts/Sohne/Sohne-Buch.otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.sohne {
+  font-family: "Sohne", sans-serif;
+}
+
+@font-face {
+  font-family: "PPAgrandir";
+  src: url("../fonts/PPAgrandir/PPAgrandir-Medium.eot");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ppagrandir {
+  font-family: "PPAgrandir", sans-serif;
+}
+
+@font-face {
+  font-family: "Graphik";
+  src: url("../fonts/Graphik/Graphik-Medium.eot");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.graphik {
+  font-family: "Graphik", sans-serif;
+}
+
+@font-face {
+  font-family: "JuiceBoxTitle";
+  src: url("../fonts/177dfc527bd44fad48eb07c66fb3cc41.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.juiceBoxTitle {
+  font-family: "JuiceBoxTitle", sans-serif;
+}
+
+@font-face {
+  font-family: "JuiceBox";
+  src: url("../fonts/e72bba62e4760c045a231a26738e7a41.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.juiceBox {
+  font-family: "JuiceBox", sans-serif;
+}

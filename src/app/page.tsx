@@ -1,14 +1,10 @@
-import SectionContainer from "@/components/container/SectionContainer";
+import Home from "@/components/Home";
 
 export const metadata = {
-  title: "",
-  description: "",
+  title: "JuiceBox",
+  description: "JuiceBox test",
 };
 
-export default function Home() {
-  return (
-    <SectionContainer withBottomMargin={false} enabledAnimation={false}>
-      <div>a</div>
-    </SectionContainer>
-  );
+export default function Page() {
+  return <Home />;
 }

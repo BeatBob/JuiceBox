@@ -1,12 +1,15 @@
+import "../styles/globals.css";
+import "../styles/fonts.css";
 import { Inter } from "next/font/google";
-import "./globals.css";
 import { ReactNode } from "react";
-
-const inter = Inter({ subsets: ["latin"] });
 
 interface Props {
   children: ReactNode;
 }
+
+const inter = Inter({
+  subsets: ["latin"],
+});
 
 export default function RootLayout({ children }: Props) {
   return (
