@@ -1,6 +1,6 @@
 "use client";
 
-import { Player as LottiePlayer } from "@lottiefiles/react-lottie-player";
+import { Player } from "@lottiefiles/react-lottie-player";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 
@@ -9,13 +9,15 @@ type Props = {
 };
 
 const LottieAnimation = ({ step }: Props) => {
-  const playerRef = useRef<LottiePlayer | null>(null);
+  const playerRef = useRef<Player | null>(null);
   const lottieWrapperClass =
     step === "started" ? `w-48 lg:w-64` : step === "form" || step === "thanks" ? "w-16 lg:w-24" : "w-11/12";
   const overlayOpacityClass = step === "form" || step === "thanks" ? "opacity-0 pointer-events-none" : "opacity-100";
   const stepTextVisible = step === "landing" ? "opacity-100" : "opacity-0";
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     if (playerRef.current) {
       if (step === "thanks") {
         playerRef.current.play();
@@ -30,7 +32,7 @@ const LottieAnimation = ({ step }: Props) => {
       <div className={`relative z-0 transition-all duration-500 mx-auto ${lottieWrapperClass} aspect-square`}>
         {/* Lottie player with hex mask */}
         <div className="absolute inset-0 mask-hex overflow-hidden z-10">
-          <LottiePlayer
+          <Player
             ref={playerRef}
             autoplay={step === "thanks"}
             loop
