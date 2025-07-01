@@ -6,6 +6,11 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  title: "JuiceBox",
+  description: "JuiceBox test",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

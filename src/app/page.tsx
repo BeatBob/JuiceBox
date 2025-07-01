@@ -1,10 +1,11 @@
-import PageContainer from "@/components/container/PageContainer";
-import HomeLayout from "@/components/HomeLayout";
+"use client";
 
-export const metadata = {
-  title: "JuiceBox",
-  description: "JuiceBox test",
-};
+import HomeLayout from "@/components/HomeLayout";
+import dynamic from "next/dynamic";
+
+const PageContainer = dynamic(() => import("@/components/container/PageContainer"), {
+  ssr: false,
+});
 
 export default function Page() {
   return (
