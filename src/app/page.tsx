@@ -1,8 +1,5 @@
+import PageContainer from "@/components/container/PageContainer";
 import Home from "@/components/Home";
-import dynamic from "next/dynamic";
-import { Suspense } from "react";
-
-const PageContainer = dynamic(() => import("@/components/container/PageContainer"));
 
 export const metadata = {
   title: "JuiceBox",
@@ -11,10 +8,8 @@ export const metadata = {
 
 export default function Page() {
   return (
-    <Suspense>
-      <PageContainer>
-        <Home />
-      </PageContainer>
-    </Suspense>
+    <PageContainer>
+      <Home />
+    </PageContainer>
   );
 }

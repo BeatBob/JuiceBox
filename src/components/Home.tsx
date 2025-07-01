@@ -6,8 +6,8 @@ import LottieAnimation from "./LottieAnimation";
 import AnimatedBackButton from "./AnimatedBackButton";
 import Button from "./ui/Button";
 import JuiceboxTitle from "./JuiceboxTitle";
-import StyledInput from "./ui/Input";
 import type { Swiper as SwiperInstance } from "swiper";
+import Input from "./ui/Input";
 
 export type StepData = {
   title?: ReactNode;
@@ -105,7 +105,7 @@ export default function Home() {
       {errors.email && <p className="text-red-400 text-sm mb-2">{errors.email}</p>}
 
       {formStep === "name" && (
-        <StyledInput
+        <Input
           name="name"
           value={formData.name}
           isDisabledSubmit={!formData.name}
@@ -116,7 +116,7 @@ export default function Home() {
       )}
 
       {formStep === "email" && (
-        <StyledInput
+        <Input
           name="email"
           type="email"
           value={formData.email}
