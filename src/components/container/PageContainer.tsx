@@ -10,6 +10,8 @@ interface Props {
 
 function PageContainer({ children, className = "" }: Props) {
   useEffect(() => {
+    if (typeof window === "undefined") return; // or guard document
+
     const lenis = new Lenis();
     const raf = (time: number) => {
       lenis.raf(time);
