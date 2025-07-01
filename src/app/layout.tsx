@@ -1,17 +1,16 @@
 import "../styles/globals.css";
 import "../styles/fonts.css";
 import { Inter } from "next/font/google";
-import { ReactNode } from "react";
-
-interface Props {
-  children: ReactNode;
-}
 
 const inter = Inter({
   subsets: ["latin"],
 });
 
-export default function RootLayout({ children }: Props) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <head>
@@ -21,7 +20,7 @@ export default function RootLayout({ children }: Props) {
         <meta name="theme-color" content="#111827" />
       </head>
 
-      <body className={inter.className}>
+      <body className={`${inter.className} antialiased`}>
         <main>{children}</main>
       </body>
     </html>
