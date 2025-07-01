@@ -1,3 +1,4 @@
+import PageContainer from "@/components/container/PageContainer";
 import Home from "@/components/Home";
 
 export const metadata = {
@@ -6,5 +7,9 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <Home />;
+  return (
+    <PageContainer>
+      <Home />
+    </PageContainer>
+  );
 }

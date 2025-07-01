@@ -1,13 +1,13 @@
 "use client";
 
 import { ReactNode, useRef, useState } from "react";
-import StepSlide from "@/components/StepSlide";
 import Carousel from "./Carousel";
 import LottieAnimation from "./LottieAnimation";
 import AnimatedBackButton from "./AnimatedBackButton";
 import Button from "./ui/Button";
 import JuiceboxTitle from "./JuiceboxTitle";
 import StyledInput from "./ui/Input";
+import type { Swiper as SwiperInstance } from "swiper";
 
 export type StepData = {
   title?: ReactNode;
@@ -18,14 +18,14 @@ const getStartedSteps: StepData[] = [
     title: (
       <span>
         Professionals around the world shared how they feel about{" "}
-        <span className="text-[#FAFAFA80]">technology and I've listened. Now it's your turn.</span>
+        <span className="text-[#FAFAFA80]">technology and I&apos;ve listened. Now it&apos;s your turn.</span>
       </span>
     ),
   },
   {
     title: (
       <span>
-        I'll ask you a handful of meaningful questions{" "}
+        I&apos;ll ask you a handful of meaningful questions{" "}
         <span className="text-[#FAFAFA80]">and compare your responses with people in your industry.</span>
       </span>
     ),
@@ -33,7 +33,7 @@ const getStartedSteps: StepData[] = [
   {
     title: (
       <span>
-        You'll get insights into current industry sentiments{" "}
+        You&apos;ll get insights into current industry sentiments{" "}
         <span className="text-[#FAFAFA80]">and a reality check about technology in a few minutes. Deal? Great!</span>
       </span>
     ),
@@ -41,7 +41,7 @@ const getStartedSteps: StepData[] = [
 ];
 
 export default function Home() {
-  const swiperRef = useRef<any>(null);
+  const swiperRef = useRef<SwiperInstance | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [step, setStep] = useState<"landing" | "started" | "form" | "thanks">("landing");
   const [formStep, setFormStep] = useState<"name" | "email">("name");
@@ -52,7 +52,11 @@ export default function Home() {
     const isFirstSlide = activeIndex === 0;
 
     if (step === "started") {
-      isFirstSlide ? setStep("landing") : swiperRef.current.slidePrev();
+      if (isFirstSlide) {
+        setStep("landing");
+      } else if (swiperRef.current) {
+        swiperRef.current.slidePrev();
+      }
     } else if (step === "form") {
       if (formStep === "name") {
         setStep("started");
@@ -68,7 +72,11 @@ export default function Home() {
     const isLastSlide = activeIndex === getStartedSteps.length - 1;
 
     if (step === "started") {
-      isLastSlide ? setStep("form") : swiperRef.current.slideNext();
+      if (isLastSlide) {
+        setStep("form");
+      } else if (swiperRef.current) {
+        swiperRef.current.slideNext();
+      }
     } else {
       setStep("started");
     }
@@ -190,10 +198,10 @@ export default function Home() {
         <div className={`w-full md:w-fit mx-auto grid ${step === "started" ? "md:grid-cols-2" : ""} gap-5`}>
           {step === "form" && renderFormStep()}
 
-          {step === "started" && (
+          {step !== "landing" && (
             <Button
               onClick={handleBackClick}
-              className="hidden md:block shadow-lg bg-transparent text-white border border-gray hover:border-white"
+              className="hidden md:block shadow-lg w-auto transition-all ease-in-out duration-300 h-fit bg-transparent text-white border border-gray hover:border-white"
             >
               Back
             </Button>

@@ -20,7 +20,7 @@ const Input = ({ name, value, onChange, onSubmit, placeholder, isDisabledSubmit,
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.4, duration: 0.4 }}
-      className={`relative w-full max-w-md mx-auto ${className}`}
+      className={`relative w-full max-w-lg mx-auto ${className}`}
     >
       <input
         name={name}
@@ -31,7 +31,7 @@ const Input = ({ name, value, onChange, onSubmit, placeholder, isDisabledSubmit,
         }}
         type={type}
         placeholder={placeholder}
-        className="w-full bg-transparent text-white border border-white/20 rounded-2xl py-3 pl-4 pr-12 placeholder:text-gray outline-none focus:border-gray transition-all"
+        className="w-full min-w-md bg-transparent text-white border border-white/20 rounded-2xl py-3 pl-4 pr-12 placeholder:text-gray outline-none focus:border-gray transition-all"
       />
 
       {onSubmit && (
